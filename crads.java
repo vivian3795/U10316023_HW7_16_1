@@ -10,9 +10,12 @@
  import java.util.Random;
  
 public class cards extends JFrame{
+	//create an imageicon array
 	ImageIcon[][] arr = new ImageIcon[4][13];
-
+	
+	//constructor
 	public cards(){
+		//set cards into array
 		for(int c = 1 ; c <= 52 ; c++){
 			if( c < 14 ){
 				int i = 0;
@@ -40,23 +43,30 @@ public class cards extends JFrame{
 				}
 			}
 		}
-
+		//set layout
 		setLayout(new GridLayout(1,5,5,5));
+		//random four cards
 		for(int i = 0 ;  i < 4 ; i++){
 			Random ran = new Random();
 			int r = ran.nextInt(4);
 			int c = ran.nextInt(13);
-			String shuffle = "arr["+r+"]["+c+"]";
-			add(new JLabel(shuffle));
+			add(new JLabel(arr[r][c]));
 		}
 	}
 
+	//main method
 	public static void main(String[] args) {
+		//create cards object 
 		cards CARDS = new cards();
+		//set title
 		CARDS.setTitle("Pick Four Cards");
+		//set size
 		CARDS.setSize(400,150);
+		//center the frame
 		CARDS.setLocationRelativeTo(null);
+		//terminate when the frame is closed
 		CARDS.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set visible
 		CARDS.setVisible(true);
 	}
 }
